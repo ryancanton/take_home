@@ -11,12 +11,13 @@ class Subscription < ApplicationRecord
     price = 0
     title = Tea.find(tea).title
     title["Tea"] = "Subscription"
+    binding.pry
     case tea
-    when 0
+    when '1'
       price = 7
-    when 1
+    when '2'
       price = 12
-    when 2
+    when '3'
       price = 9
     end
     {title: title, price: price, status: true, frequency: freq, customer_id: cstmr, tea_id: tea}
