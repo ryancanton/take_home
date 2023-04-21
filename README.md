@@ -10,6 +10,10 @@
 - [About](#responsible-parties)
 
 ## Schema
+<p align="center">
+  <img width="900" src="https://user-images.githubusercontent.com/113324661/233697252-a1fb0a2c-eb90-4422-bd2e-d572b0ec6622.png">
+</p>
+
 
 
 ## API Endpoint Examples
