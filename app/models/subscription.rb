@@ -7,8 +7,8 @@ class Subscription < ApplicationRecord
   end
 
   def change_status
-    curr_status = self.status
-    self.update(status: !curr_status)
+    curr_status = self.active
+    self.update(active: !curr_status)
   end
 
   private 
@@ -18,6 +18,6 @@ class Subscription < ApplicationRecord
     title = tea_obj.title
     title["Tea"] = "Subscription"
     
-    {title: title, price: price, status: true, frequency: freq, customer_id: cstmr, tea_id: tea}
+    {title: title, price: price, active: true, frequency: freq, customer_id: cstmr, tea_id: tea}
   end
 end
