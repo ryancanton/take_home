@@ -12,9 +12,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   def update
     subscription = Subscription.find(params[:id])
     if params[:change_status]
-      curr_status = subscription.status
-      subscription.update(status: !curr_status)
-      binding.pry
+      subscription.change_status
       render json: SubscriptionSerializer.new(subscription)
     else
       render json: {Errors: "Invalid Arguments"}
