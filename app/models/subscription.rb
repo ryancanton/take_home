@@ -6,20 +6,18 @@ class Subscription < ApplicationRecord
     Subscription.create(get_params(freq, tea, cstmr))
   end
 
+  def change_status
+    curr_status = self.active
+    self.update(active: !curr_status)
+  end
+
   private 
   def self.get_params(freq, tea, cstmr)
-    price = 0
-    title = Tea.find(tea).title
+    tea_obj = Tea.find(tea)
+    price = tea_obj.price
+    title = tea_obj.title
     title["Tea"] = "Subscription"
-    binding.pry
-    case tea
-    when '1'
-      price = 7
-    when '2'
-      price = 12
-    when '3'
-      price = 9
-    end
-    {title: title, price: price, status: true, frequency: freq, customer_id: cstmr, tea_id: tea}
+    
+    {title: title, price: price, active: true, frequency: freq, customer_id: cstmr, tea_id: tea}
   end
 end

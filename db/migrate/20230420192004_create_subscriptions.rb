@@ -2,7 +2,6 @@ class CreateSubscriptions < ActiveRecord::Migration[6.0]
   def change
     create_table :subscriptions do |t|
       t.string :title
-      t.string :price
       t.boolean :status
       t.integer :frequency
       t.references :customer, null: false, foreign_key: true
